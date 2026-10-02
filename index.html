@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#d5e3d0">
+  <title>GraphCalc — Graphing Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar"><a class="brand" href="#" aria-label="GraphCalc home"><span class="brand-icon">G</span><span>GraphCalc<span class="brand-dot">.</span><small>GRAPHING CALCULATOR</small></span></a><div class="top-meta"><span class="online"><i></i> READY</span></div></header>
+
+    <main>
+      <section class="hero"><div class="hero-copy"><div class="eyebrow">GRAPHING CALCULATOR</div><h1>Explore your<br><em>equations.</em></h1><p>Plot functions, evaluate expressions, and analyze loci.</p></div></section>
+
+      <section class="workspace" aria-label="Complex locus calculator">
+        <div class="input-panel">
+          <div class="panel-heading"><span class="step">01</span><div><h2>Enter an expression</h2><p>Use arithmetic, functions, or an equation in x and y.</p></div><span class="help" title="Use +, -, *, /, ^, sin, cos, sqrt, log, pi, x and y.">?</span></div>
+          <div class="mode-switch" role="tablist" aria-label="Graph mode"><button class="mode active" data-mode="function" role="tab">FUNCTION</button><button class="mode" data-mode="locus" role="tab">LOCUS MODE</button></div>
+          <label class="field-label" for="equation">EXPRESSION</label>
+          <div class="equation-input"><span class="fx" id="inputPrefix">y =</span><input id="equation" value="sin(x)" autocomplete="off" spellcheck="false" aria-label="Graph equation"><button id="plotBtn" class="plot-btn">PLOT <span>↗</span></button></div>
+          <div class="input-hint" id="inputHint"><span>↳</span> Try: <code>sin(x)</code>, <code>x^2 / 4</code>, <code>2*cos(x)</code></div>
+          <div class="solver-card"><div class="solver-label">SOLUTION</div><div id="solution">Enter an expression to see its value and analysis.</div><div class="calculus-tools" aria-label="Calculus tools"><button data-calc="derivative">d/dx</button><button data-calc="integral">∫ dx</button><button data-calc="series">Series</button></div><div id="calculusResult" class="calculus-result"></div></div>
+          <div class="divider"><span>EXAMPLES</span></div>
+          <div class="preset-grid">
+            <button class="preset active" data-eq="sin(x)" data-mode="function"><span class="preset-icon circle-icon">〰</span><span><b>Sine wave</b><small>y = sin(x)</small></span><span class="arrow">↗</span></button>
+            <button class="preset" data-eq="x^2 / 4" data-mode="function"><span class="preset-icon">⌒</span><span><b>Parabola</b><small>y = x² / 4</small></span><span class="arrow">↗</span></button>
+            <button class="preset" data-eq="x^2 + y^2 = 9" data-mode="locus"><span class="preset-icon">◯</span><span><b>Circle locus</b><small>x² + y² = 9</small></span><span class="arrow">↗</span></button>
+            <button class="preset" data-eq="x * y = 3" data-mode="locus"><span class="preset-icon">∞</span><span><b>Hyperbola locus</b><small>xy = 3</small></span><span class="arrow">↗</span></button>
+          </div>
+        </div>
+
+        <div class="plot-panel">
+          <div class="plot-head"><div><span class="step">02</span><h2 id="plotTitle">Your function</h2></div><div class="plot-tools"><button id="zoomOut" aria-label="Zoom out">−</button><button id="zoomIn" aria-label="Zoom in">+</button><button id="resetView" aria-label="Reset view">⌖</button></div></div>
+          <div class="plot-wrap"><canvas id="plot" aria-label="Graph of the locus in the complex plane"></canvas><div class="axis-label axis-x">Re(z)</div><div class="axis-label axis-y">Im(z)</div><div class="plot-badge"><i></i> COMPLEX PLANE</div><div class="plot-error" id="plotError" role="alert"></div></div>
+          <div class="plot-footer"><div><span class="legend-dot"></span><b id="plotCaption">y = sin(x)</b><small id="plotKind">FUNCTION OF x</small></div><span class="coords" id="coords">HOVER TO EXPLORE <b>·</b></span></div>
+          <div class="status-bar"><span><i></i> READY TO PLOT</span><span>RE: REAL <b>·</b> IM: IMAGINARY</span></div>
+        </div>
+      </section>
+
+      <section class="below"><div class="note-card"><b>Keyboard input</b><p>Use Enter to evaluate. Zoom and reset the viewport with the controls above the graph.</p></div><div class="equation-key"><span>COMPLEX COORDINATES</span><b>z = x + iy</b><small>Re(z) + i Im(z)</small></div></section>
+    </main>
+    <footer><span>GraphCalc · GRAPHING CALCULATOR</span><span>FUNCTIONS · ARITHMETIC · LOCI</span></footer>
+  </div>
+  <script src="app.js"></script><script src="solver.js"></script><script src="mode-ui.js"></script><script src="compat.js"></script>
+</body>
+</html>
+
